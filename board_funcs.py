@@ -17,6 +17,7 @@ def bfs(board, words_list, word, path, num_words):
 
     num_words += 1
 
+    # set the min length of words you want to return
     if word in words_list and len(word) > 3:
         if len(word) in present_words:
             if word not in present_words[len(word)]:
@@ -24,6 +25,7 @@ def bfs(board, words_list, word, path, num_words):
         else:
             present_words[len(word)] = [word]
 
+    # set the maximum length of words you want
     if len(word) > 7: 
         return num_words
     
@@ -43,7 +45,7 @@ def bfs(board, words_list, word, path, num_words):
 def find_words(board, words_list):
     total_words = 0
     for i in range(len(board)):
-        for j in range(len(board[0])):
+        for j in range(len(board[i])):
             num_words = bfs(board, words_list, '', [(i,j)], 0)
             total_words += num_words
             print(board[i][j], num_words)
