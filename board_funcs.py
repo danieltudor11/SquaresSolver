@@ -19,11 +19,12 @@ def bfs(board, words_list, word, path, num_words):
 
     if word in words_list and len(word) > 3:
         if len(word) in present_words:
-            present_words[len(word)].append(word)
+            if word not in present_words[len(word)]:
+                present_words[len(word)].append(word)
         else:
             present_words[len(word)] = [word]
 
-    if len(word) > 5: 
+    if len(word) > 7: 
         return num_words
     
     for pos in coords:
@@ -45,6 +46,6 @@ def find_words(board, words_list):
         for j in range(len(board[0])):
             num_words = bfs(board, words_list, '', [(i,j)], 0)
             total_words += num_words
-            # print(board[i][j], num_words, present_words)
+            print(board[i][j], num_words)
     print(f"total words tested: {total_words}")
     return present_words
