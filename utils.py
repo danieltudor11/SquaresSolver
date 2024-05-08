@@ -1,6 +1,3 @@
-
-
-
 def get_words_list():
     words = []
     with open('wordlist.txt') as file:

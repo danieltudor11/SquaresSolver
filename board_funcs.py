@@ -1,12 +1,9 @@
-
-
 def create_board():
     board = []
     with open('board.txt') as board_file:
         for line in board_file:
             board.append(line.strip().split())
     return board
-
 
 present_words = {}
 coords = [(-1,-1),(-1,0),(-1,1),(0,-1),(0,1),(1,-1),(1,0),(1,1)]
@@ -26,7 +23,8 @@ def bfs(board, words_list, word, path, num_words):
             present_words[len(word)] = [word]
 
     # set the maximum length of words you want
-    if len(word) > 4: 
+    max_length = 8
+    if len(word) >= max_length: 
         return num_words
     
     for pos in coords:
