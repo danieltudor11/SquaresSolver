@@ -26,7 +26,7 @@ def bfs(board, words_list, word, path, num_words):
             present_words[len(word)] = [word]
 
     # set the maximum length of words you want
-    if len(word) > 7: 
+    if len(word) > 4: 
         return num_words
     
     for pos in coords:
@@ -34,7 +34,7 @@ def bfs(board, words_list, word, path, num_words):
         new_y = pos[1]+j
         new_coord = (new_x,new_y)
 
-        if new_coord not in path and new_x>=0 and new_x<4 and new_y>=0 and new_y<4:
+        if new_coord not in path and new_x>=0 and new_x<len(board) and new_y>=0 and new_y<len(board[new_x]):
             new_path = path + [new_coord]
             num_words = bfs(board, words_list, word, new_path, num_words)
     
