@@ -1,10 +1,13 @@
 def get_words_list():
-    words = []
-    with open('wordlist.txt') as file:
+    words = {}
+    with open('words_alpha.txt') as file:
         for line in file:
             line = line.strip()
-            if len(line) > 3 and len(line) < 17:
-                words.append(line)
+            if len(line) > 3 and len(line) < 8:
+                if len(line) in words:
+                    words[len(line)].append(line)
+                else:
+                    words[len(line)] = [line]
     return words
 
 

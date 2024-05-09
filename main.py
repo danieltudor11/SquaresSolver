@@ -1,6 +1,5 @@
 import utils, board_funcs
 
-
 board = board_funcs.create_board()
 words_list = utils.get_words_list()
 
